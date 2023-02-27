@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ds-module-one
+
+server:
+  port: 8081

@@ -1,0 +1,4 @@
+rootProject.name = 'ds-service-platform'
+include 'ds-gateway'
+include 'ds-module-one'
+include 'ds-module-two'

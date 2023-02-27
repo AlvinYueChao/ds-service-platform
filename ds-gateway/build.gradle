@@ -1,0 +1,7 @@
+dependencies {
+    implementation platform(libs.spring.framework.bom)
+    implementation platform(libs.spring.cloud.dependencies)
+
+    implementation libs.spring.cloud.starter.gateway
+    implementation libs.commons.lang3
+}

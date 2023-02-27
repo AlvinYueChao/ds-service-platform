@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="info">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %m%n"/>
+    </Console>
+    <!--<RollingFile name="RollingFile" fileName="logs/ds-gateway.log"
+                 filePattern="logs/$${date:yyyy-MM}/ds-gateway-%d{MM-dd-yyyy}-%i.log.gz">
+        <PatternLayout pattern="[%d{yyyy-MM-dd 'at' HH:mm:ss z}] [%-5p] %l - %m%n"/>
+        <SizeBasedTriggeringPolicy size="10MB"/>
+        <DefaultRolloverStrategy max="20"/>
+    </RollingFile>-->
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
