@@ -1,0 +1,6 @@
+dependencies {
+    implementation platform(libs.spring.framework.bom)
+    implementation platform(libs.spring.cloud.dependencies)
+
+    implementation libs.spring.boot.starter.webflux
+}

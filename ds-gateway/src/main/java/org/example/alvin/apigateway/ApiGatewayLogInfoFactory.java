@@ -16,13 +16,13 @@ public class ApiGatewayLogInfoFactory {
       case ApiGatewayLogType.APPLICATION_JSON_REQUEST:
       case ApiGatewayLogType.APPLICATION_XML_REQUEST:
       case ApiGatewayLogType.BASIC_REQUEST:
-        log.info("[ip: {}], schema: {}, method: {}, requestPath: {}, route id: {}, status: {}, executionTime: {} ms, requestBody: {}",
-            apiGatewayLog.getIp(), apiGatewayLog.getSchema(), apiGatewayLog.getMethod(), apiGatewayLog.getRequestPath(), apiGatewayLog.getTargetServer(),
+        log.info("[ip: {}], method: {}, uri: {}, route id: {}, status: {}, executionTime: {} ms, requestBody: {}",
+            apiGatewayLog.getIp(), apiGatewayLog.getMethod(), apiGatewayLog.getUri(), apiGatewayLog.getTargetServer(),
             apiGatewayLog.getStatusCode(), apiGatewayLog.getExecutionTime(), StringUtils.remove(apiGatewayLog.getRequestBody(), System.lineSeparator()));
         break;
       case ApiGatewayLogType.DEFAULT_REQUEST:
-        log.info("[ip: {}], schema: {}, method: {}, requestPath: {}, route id: {}, status: {}, executionTime: {} ms, RequestParams: {}",
-            apiGatewayLog.getIp(), apiGatewayLog.getSchema(), apiGatewayLog.getMethod(), apiGatewayLog.getRequestPath(), apiGatewayLog.getTargetServer(),
+        log.info("[ip: {}], method: {}, uri: {}, route id: {}, status: {}, executionTime: {} ms, RequestParams: {}",
+            apiGatewayLog.getIp(), apiGatewayLog.getMethod(), apiGatewayLog.getUri(), apiGatewayLog.getTargetServer(),
             apiGatewayLog.getStatusCode(), apiGatewayLog.getExecutionTime(), apiGatewayLog.getRequestParams());
         break;
       default:

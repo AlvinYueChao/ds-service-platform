@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ds-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: userService
+          uri: http://localhost:8081
+          predicates:
+            - Path=/user/**
+        - id: orderService
+          uri: http://localhost:8082
+          predicates:
+            - Path=/order/**
+
+server:
+  port: 8080

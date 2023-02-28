@@ -47,13 +47,10 @@ subprojects {
         testCompileOnly libs.lombok
 
         // logging
-        implementation libs.log4j.slf4j2.impl
-        implementation libs.log4j.core
+        implementation libs.bundles.sl4j.log4j2
 
         // test
-        testImplementation libs.junit.jupiter.api
-        testRuntimeOnly libs.junit.jupiter.engine
-        testImplementation libs.junit.jupiter.params
+        testImplementation libs.bundles.junit.jupiter
     }
 
     test {

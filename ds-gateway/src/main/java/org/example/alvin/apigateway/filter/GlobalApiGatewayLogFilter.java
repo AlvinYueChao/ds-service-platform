@@ -93,9 +93,7 @@ public class GlobalApiGatewayLogFilter implements GlobalFilter {
       }
       apiGatewayLog.setRequestBody(builder.toString());
       ServerHttpResponseDecorator decoratedResponse = recordResponseLog(exchange, apiGatewayLog);
-      return chain.filter(exchange.mutate().request(mutatedRequest).response(decoratedResponse).build()).then(Mono.fromRunnable(() -> {                        // 打印日志
-        ApiGatewayLogInfoFactory.log(ApiGatewayLogType.BASIC_REQUEST, apiGatewayLog);
-      }));
+      return chain.filter(exchange.mutate().request(mutatedRequest).response(decoratedResponse).build()).then(Mono.fromRunnable(() -> ApiGatewayLogInfoFactory.log(ApiGatewayLogType.BASIC_REQUEST, apiGatewayLog)));
     });
   }
 
@@ -114,9 +112,7 @@ public class GlobalApiGatewayLogFilter implements GlobalFilter {
     return bodyInserter.insert(outputMessage, new BodyInserterContext()).then(Mono.defer(() -> {
       ServerHttpRequest decoratedRequest = requestDecorate(exchange, headers, outputMessage);
       ServerHttpResponseDecorator decoratedResponse = recordResponseLog(exchange, apiGatewayLog);
-      return chain.filter(exchange.mutate().request(decoratedRequest).response(decoratedResponse).build()).then(Mono.fromRunnable(() -> {                                // 打印日志
-        ApiGatewayLogInfoFactory.log(ApiGatewayLogType.APPLICATION_JSON_REQUEST, apiGatewayLog);
-      }));
+      return chain.filter(exchange.mutate().request(decoratedRequest).response(decoratedResponse).build()).then(Mono.fromRunnable(() -> ApiGatewayLogInfoFactory.log(ApiGatewayLogType.APPLICATION_JSON_REQUEST, apiGatewayLog)));
     }));
   }
 
@@ -196,13 +192,11 @@ public class GlobalApiGatewayLogFilter implements GlobalFilter {
 
   private ApiGatewayLog parseApiGatewayLog(ServerWebExchange exchange) {
     ServerHttpRequest request = exchange.getRequest();
-    String requestPath = request.getPath().pathWithinApplication().value();
     Route apiGatewayRoute = getApiGatewayRoute(exchange);
     String ip = IpUtils.getIpAddress(request);
     return ApiGatewayLog.builder()
-        .schema(request.getURI().getScheme())
         .method(request.getMethodValue())
-        .requestPath(requestPath)
+        .uri(request.getURI().toString())
         .targetServer(Objects.requireNonNull(apiGatewayRoute).getId())
         .ip(ip)
         .requestStartTime(OffsetDateTime.now())

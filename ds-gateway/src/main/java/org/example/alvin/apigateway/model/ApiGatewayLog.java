@@ -12,9 +12,8 @@ public class ApiGatewayLog implements Serializable {
 
   private static final long serialVersionUID = 9213127123819243749L;
   private String targetServer;
-  private String requestPath;
   private String method;
-  private String schema;
+  private String uri;
   private String ip;
   private OffsetDateTime requestStartTime;
   private Map<String, String> requestParams;
