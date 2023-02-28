@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ds-common-service
+
+server:
+  port: 8083

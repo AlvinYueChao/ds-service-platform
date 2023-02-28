@@ -1,12 +1,12 @@
-package org.example;
+package org.example.alvin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DsModuleTwoApplication {
+public class DsCommonServiceApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(DsModuleTwoApplication.class, args);
+    SpringApplication.run(DsCommonServiceApplication.class, args);
   }
 }

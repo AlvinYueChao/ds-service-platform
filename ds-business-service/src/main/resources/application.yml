@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ds-module-two
+    name: ds-business-service
 
 server:
   port: 8082

@@ -3,4 +3,7 @@ dependencies {
     implementation platform(libs.spring.cloud.dependencies)
 
     implementation libs.spring.boot.starter.webflux
+    implementation libs.spring.boot.starter.jdbc
+    implementation libs.mssql.jdbc
+    implementation libs.spring.boot.starter.actuator
 }

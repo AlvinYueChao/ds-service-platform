@@ -1,6 +1,17 @@
-spring:
-  application:
-    name: ds-module-one
-
 server:
   port: 8081
+
+spring:
+  application:
+    name: ds-data-service
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=DSDB;TrustServerCertificate=true;MultipleActiveResultSets=true;
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
